@@ -16,6 +16,14 @@ pipeline{
             steps{
                 echo 'This is minimal'
                 sh 'mvn -Dmaven.test.failure.ignore=true install'
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "deplyment started"
+                deploy adapters: [tomcat8(credentialsId: 'deployer_user', path: '', url: 'http://3.90.61.41:8090/')], contextPath: null, onFailure: false, war: '**/*.war'
+            }
+        }
 /*                 script{
                  withEnv(["MVN_HOME=${mvnHome}"])
                  {
@@ -27,8 +35,5 @@ pipeline{
                     }
                  }
                 } */
-            }
-        }
-
     }
 }
