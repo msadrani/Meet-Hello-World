@@ -2,7 +2,7 @@ def mvnHome
 pipeline{
     agent any
     tools{
-        mvnHome = maven 'M2_HOME'
+        maven 'M2_HOME'
     }
     stages{
         stage("Initialize"){
