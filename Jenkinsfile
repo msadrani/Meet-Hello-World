@@ -29,11 +29,6 @@ pipeline{
                 } */
             }
         }
-/*         stage("Deploy"){
-            steps{
-                echo "deplyment started"
-                deploy adapters: [tomcat8(credentialsId: 'deployer_user', path: '', url: 'http://3.90.61.41:8090/')], contextPath: null, onFailure: false, war: '***.war'
-            }
-        } 
+
     }
-} */
+}
